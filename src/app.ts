@@ -1,10 +1,8 @@
 /* eslint-disable no-redeclare,no-underscore-dangle */
 import { Category } from './enums';
 import { Book, Magazine } from './interfaces';
-import { PersonBook } from './types';
-import { Library } from './classes/library';
-import { purge, getObjectProperty } from './functions';
-import { ReferenceItem, UL, RefBook, Shelf } from './classes';
+import { BookRequiredFields, CreateCustomerFunctionType, PersonBook, UpdatedBook } from './types';
+import { createCustomer } from './functions';
 
 // ==================================================
 
@@ -233,6 +231,26 @@ const magazines: Magazine[] = [
 // magazineShelf.printTitles();
 // console.log(magazineShelf.find('Five Points'));
 
-console.log(getObjectProperty(magazines[0], 'title'));
-console.log(getObjectProperty(inventory[1], 'author'));
-console.log(getObjectProperty<Book, 'author' | 'title'>(inventory[1], 'title'));
+// console.log(getObjectProperty(magazines[0], 'title'));
+// console.log(getObjectProperty(inventory[1], 'author'));
+// console.log(getObjectProperty<Book, 'author' | 'title'>(inventory[1], 'title'));
+
+// Task 07.04
+// const bookRequiredFields: BookRequiredFields = {
+//     author: 'Anna',
+//     available: false,
+//     category: Category.Angular,
+//     id: 1,
+//     markDamaged: null,
+//     pages: 200,
+//     title: 'Learn Angular',
+// };
+// const updatedBook: UpdatedBook = {
+//     id: 1,
+//     pages: 300,
+// };
+// let params: Parameters<CreateCustomerFunctionType>;
+// params = ['Anna', 30, 'Kyiv'];
+// createCustomer(...params);
+
+// Task 07.05
