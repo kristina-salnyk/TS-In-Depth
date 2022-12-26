@@ -276,7 +276,20 @@ const magazines: Magazine[] = [
 // refBook.printItem();
 
 // Task 08.05
-const favouriteLibrarian = new UL.UniversityLibrarian();
-console.log(favouriteLibrarian);
-favouriteLibrarian.name = 'Anna';
-favouriteLibrarian.assistCustomer('Boris', 'Learn TS');
+// const favouriteLibrarian = new UL.UniversityLibrarian();
+// console.log(favouriteLibrarian);
+// favouriteLibrarian.name = 'Anna';
+// favouriteLibrarian.assistCustomer('Boris', 'Learn TS');
+
+// Task 08.06
+// const favouriteLibrarian = new UL.UniversityLibrarian();
+// favouriteLibrarian.name = 'Anna';
+// console.log(favouriteLibrarian.name);
+// favouriteLibrarian.assistCustomer('Boris', 'Learn TS');
+// console.log(favouriteLibrarian);
+
+// Task 08.07
+// const refBook: RefBook = new RefBook(1, 'Learn TypeScript 2', 2022, 2);
+// refBook.copies = 10;
+// // refBook.copies = -10;
+// console.log(refBook.copies);
