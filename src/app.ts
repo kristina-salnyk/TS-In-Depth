@@ -3,6 +3,7 @@ import { Category } from './enums';
 import { Book, Magazine } from './interfaces';
 import { BookRequiredFields, CreateCustomerFunctionType, PersonBook, UpdatedBook } from './types';
 import { createCustomer } from './functions';
+import { RefBook, UL } from './classes/index';
 
 // ==================================================
 
@@ -253,4 +254,29 @@ const magazines: Magazine[] = [
 // params = ['Anna', 30, 'Kyiv'];
 // createCustomer(...params);
 
-// Task 07.05
+// Task 08.01, 08.02
+// const favouriteLibrarian1 = new UL.UniversityLibrarian();
+// const favouriteLibrarian2 = new UL.UniversityLibrarian();
+// favouriteLibrarian1['a'] = 1;
+// // UL.UniversityLibrarian['a'] = 2;
+// UL.UniversityLibrarian.prototype['a'] = 3;
+
+// console.log(favouriteLibrarian1);
+// favouriteLibrarian1.name = 'Anna';
+// favouriteLibrarian1['printLibrarian']();
+
+// Task 08.03
+// const favouriteLibrarian = new UL.UniversityLibrarian();
+// console.log(favouriteLibrarian);
+// favouriteLibrarian.assistFaculty = null;
+// // favouriteLibrarian.teachCommunity = null;
+
+// Task 08.04
+// const refBook: RefBook = new RefBook(1, 'Learn TypeScript 2', 2022, 2);
+// refBook.printItem();
+
+// Task 08.05
+const favouriteLibrarian = new UL.UniversityLibrarian();
+console.log(favouriteLibrarian);
+favouriteLibrarian.name = 'Anna';
+favouriteLibrarian.assistCustomer('Boris', 'Learn TS');
