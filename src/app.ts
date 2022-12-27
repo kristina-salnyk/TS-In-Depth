@@ -1,9 +1,8 @@
 /* eslint-disable no-redeclare,no-underscore-dangle */
 import { Category } from './enums';
 import { Book, Magazine } from './interfaces';
-import { BookRequiredFields, CreateCustomerFunctionType, PersonBook, UpdatedBook } from './types';
-import { createCustomer } from './functions';
-import { RefBook, UL } from './classes/index';
+import { PersonBook } from './types';
+import { logSearchResults } from './functions';
 
 // ==================================================
 
@@ -293,3 +292,29 @@ const magazines: Magazine[] = [
 // refBook.copies = 10;
 // // refBook.copies = -10;
 // console.log(refBook.copies);
+
+// Task 09.01
+// console.log('Begin');
+// getBooksByCategory(Category.JavaScript, logCategorySearch);
+// getBooksByCategory(Category.Software, logCategorySearch);
+// console.log('End');
+
+// Task 09.02
+// console.log('Begin');
+// getBooksByCategoryPromise(Category.JavaScript)
+//     .then(titles => {
+//         console.log(titles);
+//         return Promise.resolve(titles.length);
+//     })
+//     .then(n => console.log(n))
+//     .catch(reason => console.log(reason));
+// getBooksByCategoryPromise(Category.Software)
+//     .then(titles => console.log(titles))
+//     .catch(reason => console.log(reason));
+// console.log('End');
+
+// Task 09.03
+console.log('Begin');
+logSearchResults(Category.JavaScript);
+logSearchResults(Category.Software);
+console.log('End');

@@ -1,5 +1,5 @@
 /* eslint-disable no-redeclare */
-import { Book, TOptions } from './interfaces';
+import { Book, Callback, LibMgrCallback, TOptions } from './interfaces';
 import { Category } from './enums';
 import { BookOrUndefined, BookProperties } from './types';
 import RefBook from './classes/encyclopedia';
@@ -169,4 +169,55 @@ export function getObjectProperty<TObject, TKey extends keyof TObject>(
 ): TObject[TKey] | string {
     const value = obj[prop];
     return typeof value === 'function' ? value.name : value;
+}
+
+// export function getBooksByCategory(category: Category, callback: LibMgrCallback): void {
+export function getBooksByCategory(category: Category, callback: Callback<string[]>): void {
+    setTimeout(() => {
+        try {
+            const titles = getBookTitlesByCategory(category);
+
+            if (titles.length > 0) {
+                callback(null, titles);
+            } else {
+                throw new Error('No books found');
+            }
+        } catch (error) {
+            callback(error, null);
+        }
+    }, 2000);
+}
+
+export function logCategorySearch(err: Error | null, titles: string[] | null): void {
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log(titles);
+    }
+}
+
+export function getBooksByCategoryPromise(category: Category): Promise<string[]> {
+    const promise: Promise<string[]> = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            try {
+                const titles = getBookTitlesByCategory(category);
+
+                if (titles.length > 0) {
+                    resolve(titles);
+                } else {
+                    reject('No books found');
+                }
+            } catch (error) {
+                reject(error);
+            }
+        }, 2000);
+    });
+
+    return promise;
+}
+
+export async function logSearchResults(category: Category) {
+    const titles = await getBooksByCategoryPromise(category);
+    console.log(titles.length);
+    return Promise.resolve(titles);
 }
